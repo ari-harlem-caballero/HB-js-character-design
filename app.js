@@ -37,24 +37,35 @@ headDropdown.addEventListener('change', () => {
 
 
 middleDropdown.addEventListener('change', () => {
-    // get the value of the middle dropdown
+    const middleId = middleDropdown.value;
 
-    // increment the middle change count state
-    
-    // update the dom for the middle
+    middleCount++;
 
-    // update the stats to show the new count
+    if (middleImg.hasChildNodes()) {
+        const imgEl = middleImg.firstChild;
+        middleImg.removeChild(imgEl);
+    }
+
+    middleImg.src = `./assets/${middleId}-middle.png`;
+
+    displayStats();
 });
 
 
 bottomDropdown.addEventListener('change', () => {
-    // get the value of the bottom dropdown
-
-    // increment the bottom change count state
+    const bottomId = bottomDropdown.value;
     
-    // update the dom for the bottom
-
-    // update the stats to show the new count
+    bottomCount++;
+    
+    if (bottomImg.hasChildNodes()) {
+        const imgEl = bottomImg.firstChild;
+        bottomImg.removeChild(imgEl);
+    }
+    
+    bottomImg.src = `./assets/${bottomId}-pants.png`;
+    
+    displayStats();
+    
 });
 
 catchphraseButton.addEventListener('click', () => {
