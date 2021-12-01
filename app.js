@@ -65,7 +65,6 @@ bottomDropdown.addEventListener('change', () => {
     bottomImg.src = `./assets/${bottomId}-pants.png`;
     
     displayStats();
-    
 });
 
 catchphraseButton.addEventListener('click', () => {
@@ -80,7 +79,7 @@ catchphraseButton.addEventListener('click', () => {
 });
 
 function displayStats() {
-    // change the text contentof the reportEl to tell the user how many times they've changed each piece of the state
+    // change the text content of the reportEl to tell the user how many times they've changed each piece of the state
     const statsString = makeStatsString(); // call this function with the correct arguments
 }
 
