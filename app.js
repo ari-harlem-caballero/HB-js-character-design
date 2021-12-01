@@ -7,7 +7,7 @@ const headImg = document.getElementById('head');
 const middleImg = document.getElementById('middle');
 const bottomImg = document.getElementById('bottom');
 const reportEl = document.getElementById('report');
-const chatchphrasesEl = document.getElementById('chatchphrases');
+const catchphrasesEl = document.getElementById('catchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 
@@ -70,11 +70,13 @@ bottomDropdown.addEventListener('change', () => {
 
 catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
-    
+    const catchPhrase = catchphraseInput.value;
     // push the new catchphrase to the catchphrase array in state
+    catchPhraseArray.push(catchPhrase);
     // clear out the form input's value so it's empty to the user
+    catchphraseInput.value = '';
     // update the dom to show the new catchphrases (call a function to do this work)
-
+    displayCatchphrases();
 });
 
 function displayStats() {
@@ -84,9 +86,17 @@ function displayStats() {
 
 function displayCatchphrases() {
     // clear out the DOM for the currently displayed catchphrases
-
+    catchphrasesEl.textContent = '';
     // loop through each catchphrase in state
     // and for each catchphrase
+    for (let catchPhrase of catchPhraseArray) {
+
+        const p = document.createElement('p');
+        p.classList.add('catchPhrase');
+        p.textContent = catchPhrase;
+
+        catchphrasesEl.append(p);
+    }
     // create an HTML element with the catchphrase as its text content
     // and append that HTML element to the cleared-out DOM
 }
