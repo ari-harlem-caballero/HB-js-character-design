@@ -3,9 +3,9 @@ import { makeStatsString } from './utils.js';
 const headDropdown = document.getElementById('head-dropdown');
 const middleDropdown = document.getElementById('middle-dropdown');
 const bottomDropdown = document.getElementById('bottom-dropdown');
-const headEl = document.getElementById('head');
-const middleEl = document.getElementById('middle');
-const bottomEl = document.getElementById('bottom');
+const headImg = document.getElementById('head');
+const middleImg = document.getElementById('middle');
+const bottomImg = document.getElementById('bottom');
 const reportEl = document.getElementById('report');
 const chatchphrasesEl = document.getElementById('chatchphrases');
 const catchphraseInput = document.getElementById('catchphrase-input');
@@ -20,12 +20,19 @@ let catchPhraseArray = [];
 
 headDropdown.addEventListener('change', () => {
     // get the value of the head dropdown
-
+    const headId = headDropdown.value;
     // increment the head change count state
-    
+    headCount++;
     // update the dom for the head
+    if (headImg.hasChildNodes()) {
+        const imgEl = headImg.firstChild;
+        headImg.removeChild(imgEl);
+    }
+
+    headImg.src = `./assets/${headId}-head.png`;
 
     // update the stats to show the new count
+    displayStats();
 });
 
 
@@ -54,7 +61,6 @@ catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
     
     // push the new catchphrase to the catchphrase array in state
-    // update the dom for the bottom
     // clear out the form input's value so it's empty to the user
     // update the dom to show the new catchphrases (call a function to do this work)
 
