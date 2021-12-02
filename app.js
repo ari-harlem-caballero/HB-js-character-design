@@ -45,9 +45,12 @@ middleDropdown.addEventListener('change', () => {
         const imgEl = middleImg.firstChild;
         middleImg.removeChild(imgEl);
     }
+    
+    const img = document.createElement('img');
+    img.src = `./assets/${middleId}-middle.png`;
 
-    middleImg.src = `./assets/${middleId}-middle.png`;
-
+    middleImg.appendChild(img);
+    
     displayStats();
 });
 
