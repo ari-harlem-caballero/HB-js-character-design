@@ -29,8 +29,10 @@ headDropdown.addEventListener('change', () => {
         headImg.removeChild(imgEl);
     }
 
-    headImg.src = `./assets/${headId}-head.png`;
+    const img = document.createElement('img');
+    img.src = `./assets/${headId}-head.png`;
 
+    headImg.appendChild(img);
     // update the stats to show the new count
     displayStats();
 });
@@ -48,7 +50,7 @@ middleDropdown.addEventListener('change', () => {
     
     const img = document.createElement('img');
     img.src = `./assets/${middleId}-middle.png`;
-
+    
     middleImg.appendChild(img);
     
     displayStats();
@@ -65,7 +67,10 @@ bottomDropdown.addEventListener('change', () => {
         bottomImg.removeChild(imgEl);
     }
     
-    bottomImg.src = `./assets/${bottomId}-pants.png`;
+    const img = document.createElement('img');
+    img.src = `./assets/${bottomId}-pants.png`;
+    
+    bottomImg.appendChild(img);
     
     displayStats();
 });
